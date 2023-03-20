@@ -1,0 +1,12 @@
+version: '2'
+services:
+
+  sphinx:
+    container_name: sphinx
+    build: ./sphinx
+    volumes:
+      - ./sphinx:/sphinx
+      - ./build:/build
+    command: sphinx-autobuild -a --host 0.0.0.0 --port 8000 /sphinx/source /build
+    ports:
+      - 7000:8000
